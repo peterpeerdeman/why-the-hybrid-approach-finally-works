@@ -138,7 +138,7 @@
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
                     <section>
                         <h2>Part-up</h2>
-                        <h3>(cordova/react)</h3>
+                        <h3>(cordova/react/meteor)</h3>
                         <img src="images/partup-0.png" alt="" width=800>
                     </section>
                     <section>
@@ -147,15 +147,37 @@
                     </section>
                 </section>
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
-                    <img src="images/startdashboard.png" alt=""  style="float:right" width=250>
-                    <h2>StartDashboard</h2>
-                    <h3>(reactnative/meteor)</h3>
+                    <section>
+                        <h2>StartDashboard</h2>
+                        <h3>(reactnative/meteor)</h3>
+                        <img src="images/startdashboard-0.png" alt="" width=800>
+                    </section>
+                    <section>
+                        <img src="images/startdashboard-1.png" alt=""  width=375>
+                        <img src="images/startdashboard-2.png" alt=""  style="float:right" width=375>
+                    </section>
                 </section>
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
-                    <img src="images/hva.png" alt=""   style="float:right" width=250>
-                    <img src="images/hva-2.png" alt=""   style="float:right" width=250>
-                    <h2>HvA</h2>
-                    <h3>(reactnative)</h3>
+                    <section>
+                        <h2>HvA</h2>
+                        <h3>(reactnative)</h3>
+                        <img src="images/hva-0.png" alt="" width=800>
+                    </section>
+                    <section>
+                        <img src="images/hva-1.png" alt=""  width=375>
+                        <img src="images/hva-2.png" alt=""   style="float:right" width=375>
+                    </section>
+                </section>
+                <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <section>
+                        <h2>GrowBee</h2>
+                        <h3>(reactnative)</h3>
+                        <img src="images/growbee-0.png" alt="" width=700>
+                    </section>
+                    <section>
+                        <img src="images/growbee-1.png" alt=""  width=375>
+                        <img src="images/growbee-2.png" alt=""   style="float:right" width=375>
+                    </section>
                 </section>
                 <section class="pp-title" data-background="images-theme/bg/bg-subject.jpg">
                     <h2>React? ReactNative?</h2>
@@ -246,17 +268,90 @@ class Blink extends Component {
                     </code>
                     </pre>
                 </section>
+                <section class="pp-title" data-background="images-theme/bg/bg-subject.jpg">
+                    <h2>Look familiar?</h2>
+                </section>
+                <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <pre style="float:left; width:50%">
+                    <code class="javascript">
+import React from 'react';
+
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
+
+  tick() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  render() {
+    return (
+      <div>
+        Seconds: {this.state.seconds}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Timer />, mountNode);
+                    </code>
+                    </pre>
+                    <pre style="float:right; width:48%; border-left: 1px dashed #444">
+                    <code class="javascript">
+import React, { Component } from 'react';
+import { AppRegistry, Text, View } from 'react-native';
+
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isShowingText: true};
+
+    // Toggle the state every second
+    setInterval(() => {
+      this.setState(previousState => {
+        return { isShowingText: !previousState.isShowingText };
+      });
+    }, 1000);
+  }
+
+  render() {
+    let display = this.state.isShowingText ? this.props.text : ' ';
+    return (
+      <Text>{display}</Text>
+    );
+  }
+}
+                    </code>
+                    </pre>
+                </section>
                 <section class="pp-title" data-background="images-theme/bg/bg-outro.jpg">
                     <h2>Hybrid with benefits</h2>
                 </section>
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <h3>benefits</h3>
                     <ul>
-                        <li class="fragment">1 codebase</li>
+                        <li>1 codebase</li>
                         <li class="fragment">1 language expertise</li>
                         <li class="fragment">1 QA (business logic)</li>
                         <li class="fragment">rich plugin/bridge ecosystem</li>
                         <li class="fragment">hot code reload</li>
                     </ul>
+                </section>
+                <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <h3>but most of all...</h3>
+                </section>
+                <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <h2>native user experience</h2>
+                    <video src="videos/AndroidNativeTransitions.mp4" height="" width="300" preload="none" autoplay="autoplay" style="float:left" loop></video>
+                    <video src="videos/iOSGestureNavigation.mov" height="" width="300" preload="none" autoplay="autoplay" style="float:right" loop></video>
                 </section>
 
                 <section class="pp-title" data-background="images-theme/bg/bg-outro.jpg">
@@ -264,19 +359,20 @@ class Blink extends Component {
                 </section>
 
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <h3>downsides</h3>
                     <ul>
-                        <li class="fragment">"sdk feature delay"</li>
-                        <li class="fragment">specific interactions e.g. shared element transitions</li>
-                        <li class="fragment">single javascript thread</li>
+                        <li>"sdk feature delay"</li>
                         <li class="fragment">plugin/bridge dependency</li>
+                        <li class="fragment">single javascript thread</li>
                         <li class="fragment">patents/uncertainty</li>
+                        <li class="fragment">specific custom behaviors</li>
                     </ul>
                 </section>
 
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
                     <h3>Some questions arise...</h3>
                 </section>
-                <section class="pp-title" data-background="images-theme/bg/bg-quote.jpg">
+                <section class="pp-title" data-background="images-theme/bg/bg-intro.jpg">
                     <h2>"Does the experience compare to two native apps?"</h2>
                 </section>
 
@@ -284,15 +380,24 @@ class Blink extends Component {
                     <h3>It does, actually</h3>
                 </section>
 
-                <section class="pp-title" data-background="images-theme/bg/bg-quote.jpg">
+                <section class="pp-title" data-background="images-theme/bg/bg-subject.jpg">
                     <h2>"Don't you bump into bounderies constantly?"</h2>
                 </section>
 
                 <section data-background="images-theme/bg/bg-screenshot.jpg">
-                    <h3>We don't mind designing within boundaries</h3>
+                    <h3>We don't mind designing<br/> within boundaries</h3>
                 </section>
 
-                <section class="pp-title" data-background="images-theme/bg/bg-quote.jpg">
+                <section class="pp-title" data-background="images-theme/bg/bg-subject.jpg">
+                    <h2>"I've already got 2 native apps"</h2>
+                </section>
+
+                <section data-background="images-theme/bg/bg-screenshot.jpg">
+                    <h3>Integrate ReactNative pages in existing apps</h3>
+                    <img src="images/reactnative-integrate.png" alt="" />
+                </section>
+
+                <section class="pp-title" data-background="images-theme/bg/bg-intro.jpg">
                     <h3>Hamvraag...</h3>
                     <h2 class="fragment">"Is it for me?"</h2>
                 </section>
@@ -302,14 +407,18 @@ class Blink extends Component {
                     <ul>
                         <li class="fragment">Quick multiplatform development</li>
                         <li class="fragment">Leverage JS developerment skills</li>
-                        <li class="fragment">Integration with existing apps</li>
+                        <li class="fragment">Optimize QA efficiency</li>
                     </ul>
+                </section>
+
+                <section class="pp-title" data-background="images-theme/bg/bg-quote.jpg">
+                    <h2>"You have got no reason not to use ReactNative"</h2>
                 </section>
 
                 <section>
                     <h2>ReactNative Meetup</h2>
-                    <img src="images/meetup.jpg" alt="" />
-                    <a href="https://www.youtube.com/watch?v=6vgTgxkGVC0">link to livestream recording</a>
+                    <img src="images/meetup.jpg" alt="" width="700" />
+                    <p><a href="https://www.youtube.com/watch?v=6vgTgxkGVC0">link to livestream recording</a></p>
                 </section>
 
                 <section data-state="firstSlide" class="pp-title" data-background="images-theme/bg/bg-intro.jpg">
